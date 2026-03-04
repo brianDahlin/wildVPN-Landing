@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npx shadcn@latest:*)",
+      "WebFetch(domain:21st.dev)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "mcp__sequential-thinking__sequentialthinking"
+    ]
+  }
+}
