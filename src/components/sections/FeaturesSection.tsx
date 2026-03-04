@@ -2,24 +2,67 @@
 
 import { motion } from "framer-motion";
 import {
-  Shield,
-  Zap,
-  Smartphone,
-  Headset,
-  Gauge,
-  QrCode,
-  LucideIcon,
-} from "lucide-react";
-import { FEATURES } from "@/constants/content";
+  IconShieldLock,
+  IconBolt,
+  IconDeviceMobile,
+  IconHeadset,
+  IconGauge,
+  IconQrcode,
+  IconLock,
+  IconClock,
+} from "@tabler/icons-react";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 
-const ICON_MAP: Record<string, LucideIcon> = {
-  Shield,
-  Zap,
-  Smartphone,
-  Headset,
-  Gauge,
-  QrCode,
-};
+const features = [
+  {
+    icon: <IconShieldLock size={28} />,
+    title: "Zero Logs. Всегда.",
+    description:
+      "Мы физически не можем передать ваши данные — потому что не храним их. Никаких записей о посещениях, IP-адресах и сессиях.",
+  },
+  {
+    icon: <IconBolt size={28} />,
+    title: "Обходит любой DPI",
+    description:
+      "VLESS + Reality маскирует трафик под обычный HTTPS. Провайдер видит обычный сайт — не VPN.",
+  },
+  {
+    icon: <IconGauge size={28} />,
+    title: "1 Гбит/с без лимитов",
+    description:
+      "Выделенные серверы на высокоскоростных каналах. Никаких ограничений по трафику или скорости.",
+  },
+  {
+    icon: <IconLock size={28} />,
+    title: "Три протокола защиты",
+    description:
+      "VMess, VLESS и VLESS + Reality — выбери под свою задачу. От совместимости до максимальной анонимности.",
+  },
+  {
+    icon: <IconDeviceMobile size={28} />,
+    title: "iOS и Android",
+    description:
+      "Работает через V2Box, Streisand, V2RayNG, Nekobox — стандартные клиенты без привязки к нам.",
+  },
+  {
+    icon: <IconQrcode size={28} />,
+    title: "30 секунд до первого соединения",
+    description:
+      "Получи QR-код в Telegram, отсканируй в приложении — готово. Никаких инструкций на 10 страниц.",
+  },
+  {
+    icon: <IconHeadset size={28} />,
+    title: "Поддержка за 5 минут",
+    description:
+      "Живые люди в Telegram, не боты. Поможем с настройкой, сменим сервер или протокол — сразу.",
+  },
+  {
+    icon: <IconClock size={28} />,
+    title: "7 дней — возврат без вопросов",
+    description:
+      "Не понравилось — вернём деньги в течение недели. Никаких форм, никаких объяснений.",
+  },
+];
 
 export function FeaturesSection() {
   return (
@@ -40,37 +83,7 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURES.map((feature, i) => {
-            const Icon = ICON_MAP[feature.icon];
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: i * 0.1,
-                  ease: [0.25, 0.46, 0.45, 0.94],
-                }}
-                className="bg-[#0F1923] border border-[#1A3040] rounded-2xl p-6 flex flex-col gap-4 hover:border-[#04D5E9]/30 hover:shadow-[0_0_20px_rgba(4,213,233,0.05)] transition-all duration-300 group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#04D5E9]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#04D5E9]/15 transition-colors">
-                  {Icon && <Icon size={20} className="text-[#04D5E9]" />}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-[#7A8D9E] leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        <FeaturesSectionWithHoverEffects features={features} />
       </div>
     </section>
   );
