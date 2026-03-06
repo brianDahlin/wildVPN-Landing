@@ -8,11 +8,11 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-  { label: "Возможности", href: "#features" },
-  { label: "Протоколы", href: "#protocols" },
-  { label: "Тарифы", href: "#pricing" },
-  { label: "Приложения", href: "#apps" },
-  { label: "Поддержка", href: "#support" },
+  { label: "Возможности", href: "/#features" },
+  { label: "Протоколы", href: "/#protocols" },
+  { label: "Тарифы", href: "/#pricing" },
+  { label: "Приложения", href: "/#apps" },
+  { label: "Поддержка", href: "/#support" },
 ];
 
 export const FEATURES = [

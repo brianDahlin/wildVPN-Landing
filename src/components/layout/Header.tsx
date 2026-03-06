@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { NAV_LINKS, APP_LINKS } from "@/constants/content";
 import { Logo } from "@/components/ui/Logo";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
@@ -19,10 +20,16 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const router = useRouter();
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/#")) {
+      router.push(href);
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleInstallClick = () => {
@@ -53,7 +60,7 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 select-none">
+        <a href="/" className="flex items-center gap-2 select-none">
           <Logo size={28} />
           <span className="text-lg font-bold tracking-tight">
             <span className="text-white">Wild</span>

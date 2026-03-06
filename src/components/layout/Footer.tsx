@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Send } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/constants/content";
 import { Logo } from "@/components/ui/Logo";
@@ -64,8 +65,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-dashed border-[#1A3040] text-center text-xs text-[#4A6070]">
-          © 2025 WildVPN. Все права защищены.
+        <div className="mt-10 pt-6 border-t border-dashed border-[#1A3040] flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#4A6070]">
+          <p>© 2025 WildVPN. Все права защищены.</p>
+          <Link
+            href="/privacy"
+            className="text-[#7A8D9E] hover:text-[#04D5E9] transition-colors"
+          >
+            Политика конфиденциальности
+          </Link>
         </div>
       </div>
     </footer>
